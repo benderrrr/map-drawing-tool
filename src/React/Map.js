@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import {addPolygonPoint, setCircleCenter, setCircleRadius, getCircleArea, getPolygonArea} from "../Redux/mapReducer";
+import {
+    addPolygonPoint,
+    setCircleCenter,
+    setCircleRadius,
+    getCircleArea,
+    getPolygonArea,
+    getInterArea
+} from "../Redux/mapReducer";
 
 const drawModes = {
     OFF: 'OFF',
@@ -68,6 +75,7 @@ function Map(props) {
                     <button onClick={() => setDrawMode(drawModes.SET_CIRCLE_CENTER)}>C</button>
                     <div>Circle area:{props.circleArea}</div>
                     <div>Polygon area:{props.polygonArea}</div>
+                    <div>Common area:{props.interArea}</div>
                 </div>
                 <svg width="800px" height="600px" onClick={onMapClick} onContextMenu={rightClick}
                      onMouseMove={onMouseMove}>
@@ -94,6 +102,7 @@ const mapStateToProps = (state) => {
         polygon: state.map.polygon,
         circleArea: getCircleArea(state),
         polygonArea: getPolygonArea(state),
+        interArea: getInterArea(state),
     }
 };
 

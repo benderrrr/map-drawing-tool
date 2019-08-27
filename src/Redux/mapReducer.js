@@ -45,4 +45,41 @@ export const getPolygonArea = (state) => {
     return s < 0 ? -s / 2 : s / 2;
 };
 
+export const getInterArea = (state) => {
+    let w = 800;
+    let h = 600;
+
+    let intersectionsPixels = 0;
+    let {circle} = state.map;
+    debugger;
+    for (let i = 0; i < w - 1; i++) {
+        for (let j = 0; j < h - 1; j++) {
+            let insideCircle = pointInCircle(i, j, circle.center.x, circle.center.y, circle.radius);
+            if (!insideCircle) continue;
+
+            let insidePolyResult = insidePoly(state.map.polygon.points, i, j);
+            if (insidePolyResult) intersectionsPixels++;
+        }
+    }
+
+    return intersectionsPixels;
+};
+
+function insidePoly(poly, pointX, pointY) {
+    let i, j;
+    let inside = false;
+    for (i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+        if (((poly[i].y > pointY) != (poly[j].y > pointY)) && (pointX < (poly[j].x - poly[i].x) * (pointY - poly[i].y) /
+            (poly[j].y - poly[i].y) + poly[i].x)) inside = !inside;
+    }
+    return inside;
+};
+
+// x,y is the point to test
+// cx, cy is circle center, and radius is circle radius
+function pointInCircle(x, y, cx, cy, radius) {
+    let distancesquared = (x - cx) * (x - cx) + (y - cy) * (y - cy);
+    return distancesquared <= radius * radius;
+};
+
 export default mapReducer;
