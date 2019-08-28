@@ -12,10 +12,4 @@ function App() {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        map: state.map
-    }
-};
-
 export default App;

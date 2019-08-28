@@ -1,4 +1,4 @@
-import {applyMiddleware, createStore} from "redux";
+import {createStore} from "redux";
 import {combineReducers} from "redux/es/redux";
 import mapReducer from "./mapReducer";
 

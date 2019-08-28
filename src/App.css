@@ -1,14 +1,42 @@
-.map{
-  position: relative;
-  height: 600px;
-  width: 800px;
-  background-color: darkgray ;
+.map {
+    position: relative;
+    background-color: darkgray;
 }
 
-.buttons-panel {
+.panel {
+    width: 140px;
+    height: 200px;
+    right: -150px;
+    position: absolute;
+}
 
-  width: 100px;
-  height: 200px;
-  right: 10px;
-  position: absolute;
+.panel button {
+    border: none;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    background-color: lightskyblue;
+}
+
+.circle {
+    fill: yellow;
+    stroke: black;
+    stroke-width: 2;
+    fill-opacity: 0.5;
+}
+
+.polygon {
+    fill: blue;
+    stroke: black;
+    stroke-width: 2;
+    fill-opacity: 0.5;
+}
+
+.area > div {
+    padding: 5px 0;
 }
