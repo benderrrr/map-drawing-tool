@@ -1,11 +1,12 @@
 const SET_CIRCLE_CENTER = 'SET_CIRCLE_CENTER';
 const SET_CIRCLE_RADIUS = 'SET_CIRCLE_RADIUS';
 const ADD_POLYGON_POINT = 'ADD_POLYGON_POINT';
+const SET_MAP_SIZE = 'SET_MAP_SIZE';
 const CLEAR_CIRCLE = 'CLEAR_CIRCLE';
 const CLEAR_POLYGON = 'CLEAR_POLYGON';
 
 let initialState = {
-    mapSize: {width: 1000, height: 800},
+    mapSize: {},
     circle: {
         center: {x: 300, y: 300},
         radius: 200,
@@ -27,6 +28,9 @@ const mapReducer = (state = initialState, action) => {
             return {...state, polygon: {...state.polygon, points: []}};
         case CLEAR_CIRCLE :
             return {...state, circle: {...state.circle, radius: 0}};
+        case SET_MAP_SIZE :{
+            debugger
+            return {...state, mapSize: action.payload};}
         default:
             return state;
     }
@@ -37,6 +41,7 @@ export const setCircleRadius = (r) => ({type: SET_CIRCLE_RADIUS, r});
 export const addPolygonPoint = (payload) => ({type: ADD_POLYGON_POINT, payload});
 export const clearPolygon = () => ({type: CLEAR_POLYGON});
 export const clearCircle = () => ({type: CLEAR_CIRCLE});
+export const setMapSize = (payload) => ({type: SET_MAP_SIZE, payload});
 
 
 export const getCircleArea = (state) => {

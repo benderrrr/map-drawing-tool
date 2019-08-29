@@ -1,8 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Map from "./React/Map";
+import {connect} from "react-redux";
+import {setMapSize} from "./Redux/mapReducer";
 
-function App() {
+function App(props) {
+
+    props.setMapSize({width: window.innerWidth, height: window.innerHeight});
+
+    let handleResize = () => {
+        debugger
+        props.setMapSize({width: window.innerWidth, height: window.innerHeight});
+    };
+
+    useEffect(() => {
+        debugger
+        window.addEventListener('resize', handleResize);
+    });
+
+
     return (
         <div className="App">
 
@@ -12,4 +28,4 @@ function App() {
     );
 }
 
-export default App;
+export default connect(null, {setMapSize})(App);

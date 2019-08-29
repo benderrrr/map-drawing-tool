@@ -6,7 +6,7 @@
 .panel {
     width: 140px;
     height: 200px;
-    right: -150px;
+    right: 10px;
     position: absolute;
 }
 

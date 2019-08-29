@@ -54,7 +54,7 @@ const SVG = (props) => {
     };
 
     return (
-        <svg width={`${props.mapSize.width}px`} height={`${props.mapSize.height}px`} onClick={onMapClick}
+        <svg width={`${props.mapSize.width}px`} height={`${props.mapSize.height-4}px`} onClick={onMapClick}
              onMouseMove={onMouseMove}>
 
             <circle className='circle' cx={props.circle.center.x} cy={props.circle.center.y} r={props.circle.radius}
