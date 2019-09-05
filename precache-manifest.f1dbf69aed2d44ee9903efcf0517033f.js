@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ad793ffa39ce172221ffa87ef842cbcc",
+    "revision": "b1856369a495f35151c59c7211875af2",
     "url": "/map-drawing-tool/index.html"
   },
   {
-    "revision": "b73a2074d752ccf0f30a",
+    "revision": "7cfcb712753784dfe9bc",
     "url": "/map-drawing-tool/static/css/main.0de82a8e.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/map-drawing-tool/static/js/2.4c23d760.chunk.js"
   },
   {
-    "revision": "b73a2074d752ccf0f30a",
-    "url": "/map-drawing-tool/static/js/main.1b6b7835.chunk.js"
+    "revision": "7cfcb712753784dfe9bc",
+    "url": "/map-drawing-tool/static/js/main.fcb65b5f.chunk.js"
   },
   {
     "revision": "4d09a90c371318fd9d4a",
