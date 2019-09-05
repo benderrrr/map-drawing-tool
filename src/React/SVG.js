@@ -21,8 +21,9 @@ const SVG = (props) => {
         if (props.drawMode === props.drawModes.SET_CIRCLE_RADIUS) {
             let x = props.circle.center.x;
             let y = props.circle.center.y;
+            let maxRadius = Math.min.apply(null, [x, y, props.mapSize.width - x, props.mapSize.height - y]);
             const radius = Math.sqrt((mouseCoords.x - x) ** 2 + (mouseCoords.y - y) ** 2);
-            props.setCircleRadius(radius);
+            props.setCircleRadius(radius > maxRadius ? maxRadius : radius);
         } else if (props.drawMode === props.drawModes.SET_POLYGON_POINT) {
             setTempPolygonPoint({x: e.clientX, y: e.clientY})
         }
@@ -54,7 +55,7 @@ const SVG = (props) => {
     };
 
     return (
-        <svg width={`${props.mapSize.width}px`} height={`${props.mapSize.height-4}px`} onClick={onMapClick}
+        <svg width={`${props.mapSize.width}px`} height={`${props.mapSize.height - 4}px`} onClick={onMapClick}
              onMouseMove={onMouseMove}>
 
             <circle className='circle' cx={props.circle.center.x} cy={props.circle.center.y} r={props.circle.radius}

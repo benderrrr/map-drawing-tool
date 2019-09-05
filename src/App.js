@@ -9,12 +9,10 @@ function App(props) {
     props.setMapSize({width: window.innerWidth, height: window.innerHeight});
 
     let handleResize = () => {
-        debugger
         props.setMapSize({width: window.innerWidth, height: window.innerHeight});
     };
 
     useEffect(() => {
-        debugger
         window.addEventListener('resize', handleResize);
     });
 
